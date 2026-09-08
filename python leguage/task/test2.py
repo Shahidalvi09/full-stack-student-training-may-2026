@@ -43,11 +43,11 @@ class HotelManagement:
 
     def load_data(self):
 
-       
+        try:
             with open(self.file, "r") as f:
                 return json.load(f)
 
-    
+        except FileNotFoundError:
 
             self.create_tables()
 
@@ -95,7 +95,7 @@ class Book(HotelManagement):
 
         data = self.load_data()
 
-        print("\n========== AVAILABLE TABLES ==========")
+        print("\n============ AVAILABLE TABLES ===========")
 
         for table in data["tables"]:
 
@@ -152,10 +152,6 @@ class Book(HotelManagement):
 
         print("Table not found")
 
-
-
-
-
 class Show(HotelManagement):
 
     def show_tables(self):
@@ -179,10 +175,7 @@ class Show(HotelManagement):
             print("Hours:", table["hours"])
             print("Status:", status)
 
-
 print("================SHOW CLASS==================")
-
-
 
 class Update(HotelManagement):
 
@@ -215,7 +208,6 @@ class Update(HotelManagement):
         print("Table not found")
 
 print("================UPDATE CLASS===================")
-
 
 class Delete(HotelManagement):
 
@@ -297,11 +289,9 @@ while True:
         delete.delete_table()
 
     elif choice == "5":
-
         exit_program = Exit()
         exit_program.exit_program()
         break
 
     else:
-
         print("Wrong choice")
