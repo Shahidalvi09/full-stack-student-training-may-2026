@@ -43,11 +43,11 @@ class HotelManagement:
 
     def load_data(self):
 
-        try:
+       
             with open(self.file, "r") as f:
                 return json.load(f)
 
-        except FileNotFoundError:
+    
 
             self.create_tables()
 
@@ -88,11 +88,6 @@ class HotelManagement:
 
         if change:
             self.save_data(data)
-
-
-# ==================================================
-# BOOK CLASS
-# ==================================================
 
 class Book(HotelManagement):
 
@@ -158,9 +153,8 @@ class Book(HotelManagement):
         print("Table not found")
 
 
-# ==================================================
-# SHOW CLASS
-# ==================================================
+
+
 
 class Show(HotelManagement):
 
@@ -186,9 +180,9 @@ class Show(HotelManagement):
             print("Status:", status)
 
 
-# ==================================================
-# UPDATE CLASS
-# ==================================================
+print("================SHOW CLASS==================")
+
+
 
 class Update(HotelManagement):
 
@@ -220,10 +214,8 @@ class Update(HotelManagement):
 
         print("Table not found")
 
+print("================UPDATE CLASS===================")
 
-# ==================================================
-# DELETE CLASS
-# ==================================================
 
 class Delete(HotelManagement):
 
@@ -255,21 +247,14 @@ class Delete(HotelManagement):
 
         print("Table not found")
 
-
-# ==================================================
-# EXIT CLASS
-# ==================================================
-
 class Exit(HotelManagement):
 
     def exit_program(self):
 
         print("Thank you for using Hotel Management System")
+print("=============DELETE TABLE===================")
 
 
-# ==================================================
-# MAIN PROGRAM
-# ==================================================
 
 hotel = HotelManagement()
 
